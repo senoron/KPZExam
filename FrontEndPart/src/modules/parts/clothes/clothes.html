@@ -1,0 +1,135 @@
+<template>
+    <div class="slds-p-top_medium">
+        <table
+            class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+           
+        >
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Id
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Name
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Price
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Brand
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Year
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Size
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            SellingStartDate
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Quantity
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            Discount %
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={records} for:item="record" for:index="index">
+                    <tr class="slds-hint-parent" key={key}>
+                        <td data-label="Id">
+                            <div class="slds-truncate" data-index={index}>
+                                {record.id}
+                            </div>
+                        </td>
+                        <td data-label="Name">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="name" onblur={handleRowChanged}>
+                                {record.name}
+                            </div>
+                        </td>
+                        <td data-label="Price">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="price" onblur={handleRowChanged}>
+                                {record.price}
+                            </div>
+                        </td>
+                        <td data-label="Brand">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="brand" onblur={handleRowChanged}>
+                                {record.brand}
+                            </div>
+                        </td>
+                        <td data-label="Year">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="year" onblur={handleRowChanged}>
+                                {record.year}
+                            </div>
+                        </td>
+                        <td data-label="Size">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="size" onblur={handleRowChanged}>
+                                {record.size}
+                            </div>
+                        </td>
+                        <td data-label="SellingStartDate">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="sellingStartDate" onblur={handleRowChanged}>
+                                {record.sellingStartDate}
+                            </div>
+                        </td>
+                        <td data-label="Quantity">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="quantity" onblur={handleRowChanged}>
+                                {record.quantity}
+                            </div>
+                        </td>
+                        <td data-label="Discount">
+                            <div class="slds-truncate" data-index={index} contenteditable data-name="discount" onblur={handleRowChanged}>
+                                {record.discount}
+                            </div>
+                        </td>
+                        <td data-label="ForSelect">
+                            <div class="slds-truncate slds-align_absolute-center">
+                                <input class="checkboxCustomer" type="checkbox" data-index={index} onclick={handleCheckboxClick}>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <div class="slds-grid slds-p-top_medium">
+        <div class="slds-cold slds-p-right_medium">
+            <button class="slds-button slds-button_neutral" onclick={handleRefreshClick} style="width: 100px;">Refresh</button>
+        </div>
+        <div class="slds-cold slds-p-right_medium">
+            <button class="slds-button slds-button_success" onclick={handleAddRowClick} style="width: 100px;">Add Row</button>
+        </div>
+        <div class="slds-cold slds-p-right_medium">
+            <button class="slds-button slds-button_brand" onclick={handleSaveClick} style="width: 100px;">Save</button>
+        </div>
+        <div class="slds-cold slds-p-right_medium">
+            <button class="slds-button slds-button_destructive" onclick={handleSellclick} style="width: 100px;">Sell</button>
+        </div>
+        <div class="slds-cold">
+            <button class="slds-button slds-button_destructive" onclick={handleDeleteClick} style="width: 100px;">Delete</button>
+        </div>
+    </div>
+</template>
